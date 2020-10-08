@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="120" id="lIT-FK-SgL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="120" id="lIT-FK-SgL" customClass="tweetCellTableViewCell" customModule="Twitter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lIT-FK-SgL" id="g5U-d2-PvH">
@@ -72,26 +72,34 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rb-b9-DkF">
-                                            <rect key="frame" x="89" y="11" width="85" height="23"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                            <rect key="frame" x="89" y="10.999999999999998" width="76.666666666666686" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-kT-c8e">
-                                            <rect key="frame" x="89" y="42" width="270" height="67"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tweet content did you see that damn debate lmao" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-kT-c8e">
+                                            <rect key="frame" x="89" y="39.333333333333336" width="270" height="69.666666666666657"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="2rb-b9-DkF" firstAttribute="top" secondItem="g5U-d2-PvH" secondAttribute="topMargin" id="2i5-i2-Tcl"/>
+                                        <constraint firstItem="HJp-kT-c8e" firstAttribute="trailing" secondItem="g5U-d2-PvH" secondAttribute="trailingMargin" id="A91-Rx-tzD"/>
+                                        <constraint firstItem="HJp-kT-c8e" firstAttribute="top" secondItem="2rb-b9-DkF" secondAttribute="bottom" constant="8" id="BPe-dv-iTG"/>
                                         <constraint firstItem="2rb-b9-DkF" firstAttribute="leading" secondItem="yQb-fq-bM4" secondAttribute="trailing" constant="8" id="HgC-37-pNC"/>
+                                        <constraint firstItem="HJp-kT-c8e" firstAttribute="bottom" secondItem="g5U-d2-PvH" secondAttribute="bottomMargin" id="MFI-HS-HZm"/>
+                                        <constraint firstItem="HJp-kT-c8e" firstAttribute="leading" secondItem="yQb-fq-bM4" secondAttribute="trailing" constant="8" id="fnO-U6-RpV"/>
                                         <constraint firstItem="yQb-fq-bM4" firstAttribute="leading" secondItem="g5U-d2-PvH" secondAttribute="leadingMargin" id="iAm-6K-OIA"/>
                                         <constraint firstItem="yQb-fq-bM4" firstAttribute="top" secondItem="g5U-d2-PvH" secondAttribute="topMargin" id="q3T-Ak-7iO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImageView" destination="yQb-fq-bM4" id="4cA-kf-BzT"/>
+                                    <outlet property="tweetLabel" destination="HJp-kT-c8e" id="MY1-8v-WQP"/>
+                                    <outlet property="userNameLabel" destination="2rb-b9-DkF" id="PUU-OZ-ZYq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
