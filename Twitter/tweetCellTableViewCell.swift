@@ -17,9 +17,12 @@ class tweetCellTableViewCell: UITableViewCell {
     @IBOutlet weak var tweetLabel: UILabel!
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

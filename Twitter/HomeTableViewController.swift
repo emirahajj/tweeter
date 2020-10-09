@@ -13,30 +13,64 @@ class HomeTableViewController: UITableViewController {
     var tweetArray = [NSDictionary]()
     var numOfTweets:  Int!
     
+    let myRefreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadTweets()
+        
+        myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        
+        tableView.refreshControl = myRefreshControl
 
     }
     
-    func loadTweets(){
+    @objc func loadTweets(){
         
         let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         
-        let myParams = ["count": 30]
+        numOfTweets = 30
+        
+        let myParams = ["count": numOfTweets]
         TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success: { (tweets: [NSDictionary]) in
             self.tweetArray.removeAll()
             for tweet in tweets{
                 self.tweetArray.append(tweet)
             }
             self.tableView.reloadData()
+            //end the refresher
+            self.myRefreshControl.endRefreshing()
 
         }, failure: { (Error) in
             print("Sorry, you got an error")
         })
     }
     
+    
+    func loadMoreTweets(){
+        let url = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        
+        numOfTweets = numOfTweets + 20
+        
+        let myParams = ["count": numOfTweets]
+        TwitterAPICaller.client?.getDictionariesRequest(url: url, parameters: myParams, success: { (tweets: [NSDictionary]) in
+            self.tweetArray.removeAll()
+            for tweet in tweets{
+                self.tweetArray.append(tweet)
+            }
+            self.tableView.reloadData()
+            //end the refresher
 
+        }, failure: { (Error) in
+            print("Sorry, you got an error")
+        })
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == tweetArray.count {
+            loadMoreTweets()
+        }
+    }
     
 
     
@@ -66,6 +100,8 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data{
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        
+        
         
         cell.userNameLabel.text = user["name"] as? String
         cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as? String

@@ -41,6 +41,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="Peo-34-vsY" id="yee-FC-lQB"/>
                         <segue destination="iPP-w6-ac6" kind="presentation" identifier="loginToHome" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="TTX-wx-caZ"/>
                     </connections>
                 </viewController>
@@ -65,20 +66,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yQb-fq-bM4">
-                                            <rect key="frame" x="16" y="11" width="65" height="65"/>
+                                            <rect key="frame" x="10" y="11" width="65" height="65"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="65" id="2Cy-19-Ee0"/>
                                                 <constraint firstAttribute="height" constant="65" id="FLG-9R-fhO"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rb-b9-DkF">
-                                            <rect key="frame" x="89" y="10.999999999999998" width="76.666666666666686" height="20.333333333333329"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <rect key="frame" x="83" y="11" width="68.666666666666686" height="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tweet content did you see that damn debate lmao" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-kT-c8e">
-                                            <rect key="frame" x="89" y="39.333333333333336" width="270" height="69.666666666666657"/>
+                                            <rect key="frame" x="83" y="31.999999999999996" width="276" height="33.666666666666657"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -87,11 +88,12 @@
                                     <constraints>
                                         <constraint firstItem="2rb-b9-DkF" firstAttribute="top" secondItem="g5U-d2-PvH" secondAttribute="topMargin" id="2i5-i2-Tcl"/>
                                         <constraint firstItem="HJp-kT-c8e" firstAttribute="trailing" secondItem="g5U-d2-PvH" secondAttribute="trailingMargin" id="A91-Rx-tzD"/>
-                                        <constraint firstItem="HJp-kT-c8e" firstAttribute="top" secondItem="2rb-b9-DkF" secondAttribute="bottom" constant="8" id="BPe-dv-iTG"/>
+                                        <constraint firstItem="HJp-kT-c8e" firstAttribute="top" secondItem="2rb-b9-DkF" secondAttribute="bottom" constant="3" id="BPe-dv-iTG"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="HJp-kT-c8e" secondAttribute="bottom" constant="10" id="HSO-RP-0L6"/>
                                         <constraint firstItem="2rb-b9-DkF" firstAttribute="leading" secondItem="yQb-fq-bM4" secondAttribute="trailing" constant="8" id="HgC-37-pNC"/>
-                                        <constraint firstItem="HJp-kT-c8e" firstAttribute="bottom" secondItem="g5U-d2-PvH" secondAttribute="bottomMargin" id="MFI-HS-HZm"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="yQb-fq-bM4" secondAttribute="bottom" constant="10" id="UK4-1Q-XHY"/>
                                         <constraint firstItem="HJp-kT-c8e" firstAttribute="leading" secondItem="yQb-fq-bM4" secondAttribute="trailing" constant="8" id="fnO-U6-RpV"/>
-                                        <constraint firstItem="yQb-fq-bM4" firstAttribute="leading" secondItem="g5U-d2-PvH" secondAttribute="leadingMargin" id="iAm-6K-OIA"/>
+                                        <constraint firstItem="yQb-fq-bM4" firstAttribute="leading" secondItem="g5U-d2-PvH" secondAttribute="leading" constant="10" id="iAm-6K-OIA"/>
                                         <constraint firstItem="yQb-fq-bM4" firstAttribute="top" secondItem="g5U-d2-PvH" secondAttribute="topMargin" id="q3T-Ak-7iO"/>
                                     </constraints>
                                 </tableViewCellContentView>
