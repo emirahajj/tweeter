@@ -17,13 +17,24 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadTweets()
         
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         
         tableView.refreshControl = myRefreshControl
-
+        loadTweets()
+        print("Home screen viewDidLoad() ran")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //since we're overriding this function, we have to make sure the super class still does what it's supposed to
+        //so we call it here and then do whatever work we want it to do after that
+        super.viewDidAppear(true)
+        self.loadTweets()
+        
+        print("Home screen viewDidAppear() ran")
+        
+    }
+
     
     @objc func loadTweets(){
         
@@ -46,6 +57,7 @@ class HomeTableViewController: UITableViewController {
         })
     }
     
+
     
     func loadMoreTweets(){
         let url = "https://api.twitter.com/1.1/statuses/home_timeline.json"

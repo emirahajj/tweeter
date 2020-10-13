@@ -18,9 +18,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         self.loginButton.layer.cornerRadius = 15
+        
+        print("Login view loaded")
 
         // Do any additional setup after loading the view.
     }
+    
     //when this screen appears were going to be checking whether or not the user is already
     //logged in
     override func viewDidAppear(_ animated: Bool) {
