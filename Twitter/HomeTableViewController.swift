@@ -28,11 +28,9 @@ class HomeTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         //since we're overriding this function, we have to make sure the super class still does what it's supposed to
         //so we call it here and then do whatever work we want it to do after that
-        super.viewDidAppear(true)
-        self.loadTweets()
-        
+        super.viewDidAppear(animated)
         print("Home screen viewDidAppear() ran")
-        
+        self.loadTweets()
     }
 
     
@@ -40,10 +38,10 @@ class HomeTableViewController: UITableViewController {
         
         let myURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         
-        numOfTweets = 30
+        numOfTweets = 20
         
         let myParams = ["count": numOfTweets]
-        TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams, success: { (tweets: [NSDictionary]) in
+        TwitterAPICaller.client?.getDictionariesRequest(url: myURL, parameters: myParams as [String : Any], success: { (tweets: [NSDictionary]) in
             self.tweetArray.removeAll()
             for tweet in tweets{
                 self.tweetArray.append(tweet)
@@ -53,7 +51,7 @@ class HomeTableViewController: UITableViewController {
             self.myRefreshControl.endRefreshing()
 
         }, failure: { (Error) in
-            print("Sorry, you got an error")
+            print("Sorry, you got an error", Error)
         })
     }
     
@@ -74,7 +72,7 @@ class HomeTableViewController: UITableViewController {
             //end the refresher
 
         }, failure: { (Error) in
-            print("Sorry, you got an error")
+            print("Sorry, you got an error", Error)
         })
     }
 
@@ -114,13 +112,27 @@ class HomeTableViewController: UITableViewController {
         }
         
         
-        
         cell.userNameLabel.text = user["name"] as? String
         cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as? String
+
+        
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        //cell.timeLabel.text = getRelativeTime()
         return cell
     }
 
     // MARK: - Table view data source
+    
+//    func getRelativeTime(timeString: String) -> String {
+//        let time: Date
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
+//        time = dateFormatter.date(from: timeString)!
+//        return time.timeAgoDisplay()
+//    }
+    
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
