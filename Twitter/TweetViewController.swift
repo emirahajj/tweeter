@@ -35,6 +35,10 @@ class TweetViewController: UIViewController {
         super.viewDidLoad()
         
         tweetTextView.becomeFirstResponder()
+        
+        self.tweetTextView.layer.borderColor = UIColor.gray.cgColor
+        self.tweetTextView.layer.borderWidth = 2.3
+        self.tweetTextView.layer.cornerRadius = 9
 
         // Do any additional setup after loading the view.
     }
