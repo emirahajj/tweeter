@@ -119,7 +119,6 @@
                                             </constraints>
                                             <state key="normal" image="retweet-icon"/>
                                             <connections>
-                                                <action selector="favoriteTweet:" destination="lIT-FK-SgL" eventType="touchUpInside" id="bpa-NM-8J3"/>
                                                 <action selector="retweetTweet:" destination="lIT-FK-SgL" eventType="touchUpInside" id="AFR-ST-i8j"/>
                                             </connections>
                                         </button>
@@ -250,7 +249,6 @@
         <!--TweetNav Controller-->
         <scene sceneID="Q38-cO-auJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CGz-Uk-Yrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ivX-FN-wmq" userLabel="TweetNav Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="QYd-1O-q8a"/>
@@ -264,6 +262,7 @@
                         <segue destination="9Zc-aA-pTy" kind="relationship" relationship="rootViewController" id="TYZ-u9-h2O"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CGz-Uk-Yrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2102" y="924"/>
         </scene>
